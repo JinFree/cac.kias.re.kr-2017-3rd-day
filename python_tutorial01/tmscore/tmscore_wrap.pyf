@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module tmscore_wrap ! in 
+    interface  ! in :wrap
+        subroutine tmscore(l1,x1,y1,z1,n1,l2,x2,y2,z2,n2,tm,rcomm,lcomm) ! in :wrap:TMscore_subroutine.f90
+            integer :: l1
+            real dimension(3000) :: x1
+            real dimension(3000) :: y1
+            real dimension(3000) :: z1
+            integer dimension(3000) :: n1
+            integer :: l2
+            real dimension(3000) :: x2
+            real dimension(3000) :: y2
+            real dimension(3000) :: z2
+            integer dimension(3000) :: n2
+            real, intent(out) :: tm
+            real, intent(out) :: rcomm
+            integer, intent(out) :: lcomm
+        end subroutine tmscore
+    end interface 
+end python module tmscore_wrap
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

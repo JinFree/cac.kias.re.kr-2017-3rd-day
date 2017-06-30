@@ -1,0 +1,86 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module tmscore_wrap ! in 
+    interface  ! in :wrap
+        subroutine tmscore(l1,x1,y1,z1,n1,l2,x2,y2,z2,n2,tm,rcomm,lcomm) ! in :wrap:TMscore_subroutine.f90
+            integer :: l1
+            real dimension(3000) :: x1
+            real dimension(3000) :: y1
+            real dimension(3000) :: z1
+            integer dimension(3000) :: n1
+            integer :: l2
+            real dimension(3000) :: x2
+            real dimension(3000) :: y2
+            real dimension(3000) :: z2
+            integer dimension(3000) :: n2
+            real :: tm
+            real :: rcomm
+            integer :: lcomm
+            integer dimension(3000) :: i_ali
+            integer :: n_cut
+            real :: d
+            real :: d0
+            integer :: n_ali
+            integer dimension(3000) :: ia
+            integer dimension(3000) :: ib
+            real dimension(3000) :: xt
+            real dimension(3000) :: yt
+            real dimension(3000) :: zt
+            real dimension(3000) :: xb
+            real dimension(3000) :: yb
+            real dimension(3000) :: zb
+            integer dimension(3000) :: nresa
+            integer dimension(3000) :: nresb
+            integer :: nseqa
+            integer :: nseqb
+            double precision :: score
+            common /nscore/ i_ali,n_cut
+            common /para/ d,d0
+            common /align/ n_ali,ia,ib
+            common /stru/ xt,yt,zt,xb,yb,zb
+            common /nres/ nresa,nresb,nseqa,nseqb
+            common /scores/ score
+        end subroutine tmscore
+        subroutine score_fun ! in :wrap:TMscore_subroutine.f90
+            integer dimension(3000) :: i_ali
+            integer :: n_cut
+            real :: d
+            real :: d0
+            integer :: n_ali
+            integer dimension(3000) :: ia
+            integer dimension(3000) :: ib
+            real dimension(3000) :: xa
+            real dimension(3000) :: ya
+            real dimension(3000) :: za
+            real dimension(3000) :: xb
+            real dimension(3000) :: yb
+            real dimension(3000) :: zb
+            integer dimension(3000) :: nresa
+            integer dimension(3000) :: nresb
+            integer :: nseqa
+            integer :: nseqb
+            double precision :: score
+            common /nscore/ i_ali,n_cut
+            common /para/ d,d0
+            common /align/ n_ali,ia,ib
+            common /stru/ xa,ya,za,xb,yb,zb
+            common /nres/ nresa,nresb,nseqa,nseqb
+            common /scores/ score
+        end subroutine score_fun
+        subroutine u3b(w,x,y,n,mode,rms,u,t,ier) ! in :wrap:TMscore_subroutine.f90
+            double precision dimension(*) :: w
+            double precision dimension(3,*) :: x
+            double precision dimension(3,*) :: y
+            integer :: n
+            integer :: mode
+            double precision :: rms
+            double precision dimension(3,3) :: u
+            double precision dimension(3) :: t
+            integer :: ier
+        end subroutine u3b
+    end interface 
+end python module tmscore_wrap
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

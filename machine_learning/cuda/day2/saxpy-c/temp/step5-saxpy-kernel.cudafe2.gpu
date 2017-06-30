@@ -1,0 +1,32 @@
+# 211 "/usr/lib/gcc/x86_64-redhat-linux/4.4.7/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 13 "../step5-saxpy-kernel.cu"
+__global__ __var_used__ extern void _Z18saxpy_line6_kernelifPfS_(int, float, float *, float *);
+#include "common_functions.h"
+# 13 "../step5-saxpy-kernel.cu"
+__global__ __var_used__ void _Z18saxpy_line6_kernelifPfS_(
+# 13 "../step5-saxpy-kernel.cu"
+int n, 
+# 13 "../step5-saxpy-kernel.cu"
+float a, 
+# 13 "../step5-saxpy-kernel.cu"
+float *x, 
+# 13 "../step5-saxpy-kernel.cu"
+float *y){
+# 13 "../step5-saxpy-kernel.cu"
+{
+# 13 "../step5-saxpy-kernel.cu"
+{
+# 14 "../step5-saxpy-kernel.cu"
+ int __cuda_local_var_41945_7_non_const_i;
+# 14 "../step5-saxpy-kernel.cu"
+__cuda_local_var_41945_7_non_const_i = ((int)(((blockIdx.x) * (blockDim.x)) + (threadIdx.x)));
+# 15 "../step5-saxpy-kernel.cu"
+(y[__cuda_local_var_41945_7_non_const_i]) = ((a * (x[__cuda_local_var_41945_7_non_const_i])) + (y[__cuda_local_var_41945_7_non_const_i]));
+# 16 "../step5-saxpy-kernel.cu"
+return;
+# 17 "../step5-saxpy-kernel.cu"
+}
+# 17 "../step5-saxpy-kernel.cu"
+}}

@@ -1,0 +1,19 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module distance_fortran ! in 
+    interface  ! in :distance_fortran
+        subroutine calc_distance(c1_size,n1,c2_size,n2,c1,c2,distance) ! in :distance_fortran:distance_fortran.f90
+            integer, optional,intent(in),check(shape(c1,0)==c1_size),depend(c1) :: c1_size=shape(c1,0)
+            integer, optional,intent(in),check(shape(c1,1)==n1),depend(c1) :: n1=shape(c1,1)
+            integer, optional,intent(in),check(shape(c2,0)==c2_size),depend(c2) :: c2_size=shape(c2,0)
+            integer, optional,intent(in),check(shape(c2,1)==n2),depend(c2) :: n2=shape(c2,1)
+            real*8 dimension(c1_size,n1),intent(in) :: c1
+            real*8 dimension(c2_size,n2),intent(in) :: c2
+            real*8 dimension(c1_size,c2_size),intent(out),depend(c1_size,c2_size) :: distance
+        end subroutine calc_distance
+    end interface 
+end python module distance_fortran
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
