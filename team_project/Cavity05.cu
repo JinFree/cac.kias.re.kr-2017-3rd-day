@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #define Uw 1.0
-#define ERMAX 0.0000005
+#define ERMAX 0.000005
 #define xp(i) (float)i*delta
 #define yp(j) (float)j*delta
 #define position(i,j) j*Nx+i
@@ -53,9 +53,9 @@ void CavityCompute(void)
 }
 void ComputeMain(int check)
 {
-    int ReN=1000, Nx=256, N, SIZE;
+    int ReN=100, Nx=201, N, SIZE;
     int Ny=Nx;
-    float Lx=1.0, Ly=1.0, delta, dt=0.000001;
+    float Lx=1.0, Ly=1.0, delta, dt=0.00005;
     //printf("Input ReN: ");
     //scanf("%d", &ReN);
     //printf("Input Lx: ");
@@ -295,6 +295,8 @@ float ErckGPU(float *W, float *Wnew, int Nx, int Ny)
     cudaMemcpy(Wnew_h, Wnew, SIZE, cudaMemcpyDeviceToHost);
     cudaThreadSynchronize();
     error = ErckCPU(W_h, Wnew_h, Nx, Ny);
+    free(W_h);
+    free(Wnew_h);
     return error;
 }
 void StreamGPU(float *Wnew, float *Psi, float *Psinew, int Nx, int Ny, float delta, dim3 bs, dim3 ts)
